@@ -72,6 +72,12 @@
         input[type="checkbox"] { accent-color: #85331E !important; }
         body nav a:hover, body header a:hover { color: #85331E !important; }
         .prevent-orphan { text-wrap: balance; }
+
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1); }
+        .reveal.is-visible { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { transition: none; opacity: 1; transform: none; }
+        }
     </style>
 
     <!-- JSON-LD — sem reivindicação de especialidade (medicalSpecialty omitido de propósito: ainda não é pediatra) -->
@@ -138,19 +144,19 @@
                     <img src="assets/logo/logo-marsala.png" alt="Dra. Flávia Wanderley, CRM-PA 19569" class="h-full w-auto object-contain">
                 </a>
 
-                <nav class="hidden lg:flex space-x-5 xl:space-x-8 text-xs xl:text-sm font-semibold tracking-wide">
+                <nav class="hidden lg:flex shrink-0 items-center space-x-4 xl:space-x-7 text-xs xl:text-sm font-semibold tracking-wide whitespace-nowrap">
                     <a href="#diferenciais" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Diferenciais</a>
-                    <a href="#marcos" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Marcos de Desenvolvimento</a>
-                    <a href="#maternidade" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Guia Maternidade</a>
+                    <a href="#marcos" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Marcos</a>
+                    <a href="#maternidade" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Maternidade</a>
                     <a href="#servicos" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Atendimento</a>
-                    <a href="#sobre" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Sobre Mim</a>
+                    <a href="#sobre" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Sobre</a>
                     <a href="#depoimentos" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Depoimentos</a>
                     <a href="#contato" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Unidades</a>
                 </nav>
 
-                <div class="hidden lg:flex items-center">
+                <div class="hidden lg:flex items-center shrink-0">
                     <a href="#agendador"
-                       class="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-brand-marsala hover:bg-brand-ink shadow-brand-soft hover:shadow-brand-premium hover:-translate-y-0.5 transition-all">
+                       class="inline-flex items-center justify-center whitespace-nowrap px-6 py-3 rounded-full text-xs font-bold text-white bg-brand-marsala hover:bg-brand-ink shadow-brand-soft hover:shadow-brand-premium hover:-translate-y-0.5 transition-all">
                         Agendar Consulta
                     </a>
                 </div>
@@ -283,7 +289,7 @@
         </section>
 
         <!-- DIFERENCIAIS -->
-        <section id="diferenciais" class="py-24 bg-white scroll-mt-20">
+        <section id="diferenciais" class="reveal py-24 bg-white scroll-mt-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center max-w-3xl mx-auto space-y-4">
@@ -345,7 +351,7 @@
         </section>
 
         <!-- MARCOS DE DESENVOLVIMENTO -->
-        <section id="marcos" class="py-24 bg-brand-linenDark scroll-mt-20">
+        <section id="marcos" class="reveal py-24 bg-brand-linenDark scroll-mt-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center space-y-4 mb-12">
@@ -450,7 +456,7 @@
         </section>
 
         <!-- GUIA DE MATERNIDADE -->
-        <section id="maternidade" class="py-24 bg-white scroll-mt-20">
+        <section id="maternidade" class="reveal py-24 bg-white scroll-mt-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center space-y-4 mb-16">
@@ -534,7 +540,7 @@
         </section>
 
         <!-- SERVIÇOS -->
-        <section id="servicos" class="py-24 bg-brand-linen/50 scroll-mt-20">
+        <section id="servicos" class="reveal py-24 bg-brand-linen/50 scroll-mt-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -597,7 +603,7 @@
         </section>
 
         <!-- SOBRE -->
-        <section id="sobre" class="py-24 bg-white scroll-mt-20">
+        <section id="sobre" class="reveal py-24 bg-white scroll-mt-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -647,7 +653,7 @@
         </section>
 
         <!-- CONTEÚDO EDUCACIONAL (teaser do blog — 10 artigos a publicar) -->
-        <section id="conteudo" class="py-24 bg-brand-linen">
+        <section id="conteudo" class="reveal py-24 bg-brand-linen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
                     <span class="text-brand-laranja font-bold text-xs uppercase tracking-widest">Orientação de Qualidade</span>
@@ -712,7 +718,7 @@
         </section>
 
         <!-- DEPOIMENTOS -->
-        <section id="depoimentos" class="py-24 bg-white scroll-mt-20">
+        <section id="depoimentos" class="reveal py-24 bg-white scroll-mt-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
@@ -754,7 +760,7 @@
         </section>
 
         <!-- AGENDADOR -->
-        <section id="agendador" class="py-24 bg-brand-linenDark scroll-mt-20">
+        <section id="agendador" class="reveal py-24 bg-brand-linenDark scroll-mt-20">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center space-y-4 mb-12">
@@ -829,7 +835,7 @@
         </section>
 
         <!-- FAQ -->
-        <section id="faq" class="py-24 bg-white scroll-mt-20">
+        <section id="faq" class="reveal py-24 bg-white scroll-mt-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center space-y-4 mb-12">
@@ -891,7 +897,7 @@
         </section>
 
         <!-- UNIDADES / CONTATO -->
-        <section id="contato" class="py-24 bg-brand-ink text-white overflow-hidden relative">
+        <section id="contato" class="reveal py-24 bg-brand-ink text-white overflow-hidden relative">
             <div class="absolute inset-0 overflow-hidden pointer-events-none">
                 <div class="absolute -bottom-10 -left-10 w-96 h-96 rounded-full bg-brand-marsala/10 blur-xl"></div>
             </div>
@@ -1011,6 +1017,22 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+            document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+        } else {
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+        }
+    </script>
 
 </body>
 </html>
