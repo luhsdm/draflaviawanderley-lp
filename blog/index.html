@@ -41,6 +41,7 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <style>
         *, *:focus { outline: none !important; -webkit-tap-highlight-color: transparent !important; }
         .prevent-orphan { text-wrap: balance; }
@@ -48,17 +49,64 @@
 </head>
 <body class="bg-brand-linen font-sans text-brand-ink antialiased">
 
-    <header class="bg-brand-linen/95 backdrop-blur-md border-b border-brand-marsala/10 sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-            <a href="../index.html" class="flex items-center h-10 sm:h-12">
-                <img src="../assets/logo/logo-marsala.png" alt="Dra. Flávia Wanderley, CRM-PA 19569" class="h-full w-auto object-contain">
-            </a>
-            <a href="../index.html#agendador" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold text-white bg-brand-marsala hover:bg-brand-ink shadow-brand-soft transition-all">
-                Pré-Agendar Consulta
-            </a>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-linen/90 backdrop-blur-md border-b border-brand-marsala/10 shadow-sm h-20"
+            x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="flex items-center justify-between h-full">
+                <a href="../index.html" class="flex items-center h-10 sm:h-12">
+                    <img src="../assets/logo/logo-marsala.png" alt="Dra. Flávia Wanderley, CRM-PA 19569" class="h-full w-auto object-contain">
+                </a>
+
+                <nav class="hidden lg:flex shrink-0 items-center space-x-4 xl:space-x-7 text-xs xl:text-sm font-semibold tracking-wide whitespace-nowrap">
+                    <a href="../index.html#diferenciais" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Diferenciais</a>
+                    <a href="../index.html#marcos" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Marcos</a>
+                    <a href="../index.html#maternidade" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Maternidade</a>
+                    <a href="../index.html#servicos" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Atendimento</a>
+                    <a href="../index.html#sobre" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Sobre</a>
+                    <a href="../index.html#depoimentos" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Depoimentos</a>
+                    <a href="../index.html#contato" class="text-brand-ink/80 hover:text-brand-marsala transition-colors">Unidades</a>
+                </nav>
+
+                <div class="hidden lg:flex items-center shrink-0">
+                    <a href="../index.html#agendador"
+                       class="inline-flex items-center justify-center whitespace-nowrap px-6 py-3 rounded-full text-xs font-bold text-white bg-brand-marsala hover:bg-brand-ink shadow-brand-soft hover:shadow-brand-premium hover:-translate-y-0.5 transition-all">
+                        Agendar Consulta
+                    </a>
+                </div>
+
+                <div class="flex lg:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-brand-marsala hover:text-brand-laranja p-2" aria-label="Abrir menu de navegação">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="mobileMenuOpen"
+             x-transition
+             class="lg:hidden bg-brand-linen border-b border-brand-marsala/10 shadow-lg"
+             style="display: none;">
+            <div class="px-3 pt-2 pb-4 space-y-1 text-center">
+                <a href="../index.html#diferenciais" @click="mobileMenuOpen = false" class="block px-3 py-2.5 rounded-md text-base font-semibold text-brand-ink hover:bg-brand-creme/20 hover:text-brand-marsala">Diferenciais</a>
+                <a href="../index.html#marcos" @click="mobileMenuOpen = false" class="block px-3 py-2.5 rounded-md text-base font-semibold text-brand-ink hover:bg-brand-creme/20 hover:text-brand-marsala">Marcos de Desenvolvimento</a>
+                <a href="../index.html#maternidade" @click="mobileMenuOpen = false" class="block px-3 py-2.5 rounded-md text-base font-semibold text-brand-ink hover:bg-brand-creme/20 hover:text-brand-marsala">Guia Maternidade</a>
+                <a href="../index.html#servicos" @click="mobileMenuOpen = false" class="block px-3 py-2.5 rounded-md text-base font-semibold text-brand-ink hover:bg-brand-creme/20 hover:text-brand-marsala">Atendimento</a>
+                <a href="../index.html#sobre" @click="mobileMenuOpen = false" class="block px-3 py-2.5 rounded-md text-base font-semibold text-brand-ink hover:bg-brand-creme/20 hover:text-brand-marsala">Sobre Mim</a>
+                <a href="../index.html#depoimentos" @click="mobileMenuOpen = false" class="block px-3 py-2.5 rounded-md text-base font-semibold text-brand-ink hover:bg-brand-creme/20 hover:text-brand-marsala">Depoimentos</a>
+                <a href="../index.html#contato" @click="mobileMenuOpen = false" class="block px-3 py-2.5 rounded-md text-base font-semibold text-brand-ink hover:bg-brand-creme/20 hover:text-brand-marsala">Unidades</a>
+                <div class="pt-4 px-3">
+                    <a href="../index.html#agendador" @click="mobileMenuOpen = false"
+                       class="inline-block w-full px-6 py-3 rounded-full text-base font-bold text-white bg-brand-marsala shadow-brand-soft">
+                        Agendar Consulta
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
-    <main class="py-16 sm:py-20">
+    <main class="pt-20 pb-16 sm:pb-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
                 <span class="text-brand-laranja font-bold text-xs uppercase tracking-widest">Orientação de Qualidade</span>
