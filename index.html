@@ -73,7 +73,7 @@
         body nav a:hover, body header a:hover { color: #85331E !important; }
         .prevent-orphan { text-wrap: balance; }
 
-        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1); }
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.3s ease-out, transform 0.3s ease-out; }
         .reveal.is-visible { opacity: 1; transform: none; }
         @media (prefers-reduced-motion: reduce) {
             .reveal { transition: none; opacity: 1; transform: none; }
@@ -198,11 +198,6 @@
 
         <!-- HERO -->
         <section class="relative min-h-[95vh] sm:min-h-[90vh] flex items-center py-12 md:py-24 overflow-hidden bg-gradient-to-br from-brand-linen via-brand-creme/10 to-brand-sage/10">
-            <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                <div class="absolute top-20 left-10 w-44 h-96 rounded-full bg-brand-sage/10 -rotate-12 blur-sm"></div>
-                <div class="absolute bottom-10 right-10 w-64 h-[400px] rounded-full bg-brand-laranja/5 rotate-45 blur-md"></div>
-            </div>
-
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
@@ -216,10 +211,10 @@
                         </div>
 
                         <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brand-ink leading-[1.08] prevent-orphan">
-                            O cuidado que acolhe os pequenos e traz <span class="text-brand-laranja italic font-normal">paz aos pais</span>.
+                            Cuidado que acolhe, paz que fica.
                         </h1>
 
-                        <p class="text-sm sm:text-base md:text-lg text-brand-inkSoft max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light prevent-orphan">
+                        <p class="text-base sm:text-lg md:text-xl text-brand-inkSoft max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light prevent-orphan">
                             Acompanhamento humanizado e focado em prevenção para bebês, crianças e gestantes de <strong class="text-brand-ink font-semibold">Tucuruí, Novo Repartimento e Tailândia</strong>. Atendimento presencial, online ou domiciliar — com a segurança de uma médica com vivência em urgência, emergência e UTI pediátrica.
                         </p>
 
@@ -231,7 +226,7 @@
                                 </svg>
                                 Agendar Consulta
                             </a>
-                            <p class="text-xs text-brand-inkSoft font-light flex items-center gap-1.5">
+                            <p class="text-sm text-brand-inkSoft font-light flex items-center gap-1.5">
                                 <span class="text-brand-laranja">★★★★★</span> 5,0 no Google · 31 avaliações
                             </p>
                             <a href="#marcos" class="text-xs sm:text-sm font-semibold text-brand-inkSoft hover:text-brand-marsala underline underline-offset-4 decoration-brand-marsala/30 transition-colors">
@@ -271,13 +266,13 @@
                                 </div>
                                 <div class="space-y-0.5">
                                     <p class="text-[10px] text-brand-creme/90 font-bold uppercase tracking-widest leading-none">Experiência</p>
-                                    <p class="text-xs font-bold leading-tight">Vivência em UTI e Emergência Pediátrica</p>
+                                    <p class="text-sm font-bold leading-tight">Vivência em UTI e Emergência Pediátrica</p>
                                 </div>
                             </div>
 
                             <div class="absolute top-12 -left-8 bg-white/95 text-brand-ink p-3.5 rounded-2xl shadow-brand-soft border border-brand-creme flex items-center gap-2.5"
                                  style="transform: translateZ(35px);">
-                                <span class="text-xl">🍼</span>
+                                <img src="assets/icons/icon-marsala.png" alt="" class="w-5 h-5 object-contain">
                                 <span class="text-xs font-bold tracking-wide">Apoio Maternal</span>
                             </div>
 
@@ -293,7 +288,6 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center max-w-3xl mx-auto space-y-4">
-                    <span class="text-brand-laranja font-bold text-xs uppercase tracking-widest">Acolhimento e Atenção Real</span>
                     <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-ink leading-tight prevent-orphan">
                         Por que as famílias escolhem a Dra. Flávia?
                     </h2>
@@ -412,7 +406,7 @@
                     <div class="space-y-6">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div class="flex items-center gap-3">
-                                <span class="text-3xl">👶</span>
+                                <img src="assets/icons/icon-marsala.png" alt="" class="w-8 h-8 object-contain">
                                 <h3 class="font-serif text-xl font-bold text-brand-ink">Marque o que ele já realiza:</h3>
                             </div>
                             <button @click="resetTab()" class="text-xs font-bold text-brand-laranja hover:text-brand-marsala transition-colors self-start sm:self-center">
@@ -437,10 +431,10 @@
                             <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
                                 <div class="bg-brand-marsala h-full transition-all duration-500" :style="'width: ' + getProgress() + '%'"></div>
                             </div>
-                            <p class="text-xs text-brand-ink/80 font-light mt-2" x-show="getProgress() === 100">
+                            <p class="text-sm text-brand-ink/80 font-light mt-2" x-show="getProgress() === 100">
                                 🎉 Excelente! Seu bebê completou todos os marcos principais listados para esta idade.
                             </p>
-                            <p class="text-xs text-brand-ink/80 font-light mt-2" x-show="getProgress() < 100 && getProgress() > 0">
+                            <p class="text-sm text-brand-ink/80 font-light mt-2" x-show="getProgress() < 100 && getProgress() > 0">
                                 ✨ Ótimo progresso! O desenvolvimento de cada bebê é único. Converse com a Dra. Flávia para orientações específicas.
                             </p>
                         </div>
@@ -521,12 +515,12 @@
 
                      <div class="bg-white p-5 rounded-2xl border border-brand-marsala/5 flex flex-col sm:flex-row items-center justify-between gap-4">
                          <div class="text-center sm:text-left">
-                             <p class="text-xs text-slate-400 uppercase tracking-widest">Sua Mala de Maternidade</p>
+                             <p class="text-sm text-brand-inkSoft uppercase tracking-widest">Sua Mala de Maternidade</p>
                              <p class="text-sm text-brand-ink font-semibold font-serif prevent-orphan">A Dra. Flávia recomenda deixar tudo pronto até a 36ª semana!</p>
                          </div>
                          <div class="text-center">
                              <p class="text-2xl font-serif font-bold text-brand-marsala"><span x-text="checkedList.length"></span>/<span x-text="checklist.length"></span></p>
-                             <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Itens Conferidos</p>
+                             <p class="text-xs text-brand-inkSoft font-bold uppercase tracking-wider">Itens Conferidos</p>
                          </div>
                      </div>
 
@@ -546,7 +540,7 @@
                 <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
                     <span class="text-brand-laranja font-bold text-xs uppercase tracking-widest">Como Atendemos</span>
                     <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-ink prevent-orphan">Cuidado personalizado para cada fase</h2>
-                    <p class="text-slate-500 font-light prevent-orphan">
+                    <p class="text-brand-inkSoft font-light prevent-orphan">
                         Consultas presenciais em três unidades, além de atendimento online e domiciliar.
                     </p>
                 </div>
@@ -557,7 +551,7 @@
                         <div class="space-y-4">
                             <span class="inline-block px-3 py-1 rounded-full bg-brand-marsala/10 text-brand-marsala text-[10px] font-bold uppercase tracking-widest">Prevenção</span>
                             <h3 class="font-serif text-2xl font-bold text-brand-ink group-hover:text-brand-marsala transition-colors prevent-orphan">Puericultura Completa</h3>
-                            <p class="text-xs text-brand-inkSoft font-light leading-relaxed prevent-orphan">
+                            <p class="text-base text-brand-inkSoft font-light leading-relaxed prevent-orphan">
                                 Acompanhamento contínuo do crescimento e desenvolvimento do bebê, garantindo tranquilidade aos pais.
                             </p>
                         </div>
@@ -568,7 +562,7 @@
                         <div class="space-y-4">
                             <span class="inline-block px-3 py-1 rounded-full bg-brand-laranja/10 text-brand-laranja text-[10px] font-bold uppercase tracking-widest">Rotina Geral</span>
                             <h3 class="font-serif text-2xl font-bold text-brand-ink group-hover:text-brand-laranja transition-colors prevent-orphan">Consultas de Rotina</h3>
-                            <p class="text-xs text-brand-inkSoft font-light leading-relaxed prevent-orphan">
+                            <p class="text-base text-brand-inkSoft font-light leading-relaxed prevent-orphan">
                                 Acompanhamento preventivo de crianças em idade escolar, para um crescimento saudável.
                             </p>
                         </div>
@@ -579,7 +573,7 @@
                         <div class="space-y-4">
                             <span class="inline-block px-3 py-1 rounded-full bg-brand-verde/10 text-brand-verde text-[10px] font-bold uppercase tracking-widest">Gestação</span>
                             <h3 class="font-serif text-2xl font-bold text-brand-ink group-hover:text-brand-verde transition-colors prevent-orphan">Acompanhamento Pré-Natal</h3>
-                            <p class="text-xs text-brand-inkSoft font-light leading-relaxed prevent-orphan">
+                            <p class="text-base text-brand-inkSoft font-light leading-relaxed prevent-orphan">
                                 Orientações no terceiro trimestre sobre amamentação e os primeiros dias do bebê.
                             </p>
                         </div>
@@ -590,7 +584,7 @@
                         <div class="space-y-4">
                             <span class="inline-block px-3 py-1 rounded-full bg-brand-sage/15 text-brand-marsala text-[10px] font-bold uppercase tracking-widest">Online &amp; Domiciliar</span>
                             <h3 class="font-serif text-2xl font-bold text-brand-ink group-hover:text-brand-sage transition-colors prevent-orphan">Consulta Sem Sair de Casa</h3>
-                            <p class="text-xs text-brand-inkSoft font-light leading-relaxed prevent-orphan">
+                            <p class="text-base text-brand-inkSoft font-light leading-relaxed prevent-orphan">
                                 Ideal para dúvidas rápidas, acompanhamento ou visita domiciliar a recém-nascidos e crianças doentes.
                             </p>
                         </div>
@@ -613,7 +607,7 @@
                         </div>
                         <div class="absolute -bottom-6 -right-4 bg-brand-marsala text-white p-6 rounded-2xl shadow-xl max-w-xs">
                             <p class="text-2xl sm:text-3xl font-serif font-bold text-brand-creme">CRM-PA 19569</p>
-                            <p class="text-[10px] sm:text-xs font-light text-brand-linen uppercase tracking-wider mt-1">Sua médica de confiança no Pará</p>
+                            <p class="text-xs sm:text-sm font-light text-brand-linen uppercase tracking-wider mt-1">Sua médica de confiança no Pará</p>
                         </div>
                     </div>
 
@@ -656,9 +650,8 @@
         <section id="conteudo" class="reveal py-24 bg-brand-linen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                    <span class="text-brand-laranja font-bold text-xs uppercase tracking-widest">Orientação de Qualidade</span>
                     <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-ink prevent-orphan">Conteúdos para Pais e Mães</h2>
-                    <p class="text-slate-500 font-light prevent-orphan">Dicas práticas sobre saúde infantil e maternidade para guiar sua jornada.</p>
+                    <p class="text-brand-inkSoft font-light prevent-orphan">Dicas práticas sobre saúde infantil e maternidade para guiar sua jornada.</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -666,7 +659,7 @@
                         <div class="space-y-4">
                             <span class="text-xs font-bold uppercase tracking-widest text-brand-marsala">Primeiros Dias</span>
                             <h3 class="font-serif text-2xl font-bold text-brand-ink prevent-orphan">Com quantos dias levar o bebê à primeira consulta?</h3>
-                            <p class="text-xs text-brand-inkSoft leading-relaxed font-light prevent-orphan">Entenda a janela recomendada e o que é avaliado nessa primeira visita.</p>
+                            <p class="text-base text-brand-inkSoft leading-relaxed font-light prevent-orphan">Entenda a janela recomendada e o que é avaliado nessa primeira visita.</p>
                         </div>
                         <a href="blog/primeira-consulta-recem-nascido.html" class="text-xs font-bold text-brand-marsala hover:text-brand-ink transition-colors mt-4 inline-flex items-center gap-1">Ler completo <span>→</span></a>
                     </div>
@@ -674,7 +667,7 @@
                         <div class="space-y-4">
                             <span class="text-xs font-bold uppercase tracking-widest text-brand-laranja">Saúde Infantil</span>
                             <h3 class="font-serif text-2xl font-bold text-brand-ink prevent-orphan">Criança com tosse que não passa?</h3>
-                            <p class="text-xs text-brand-inkSoft leading-relaxed font-light prevent-orphan">Quando a tosse é sinal de algo que merece avaliação, e como aliviar com segurança em casa.</p>
+                            <p class="text-base text-brand-inkSoft leading-relaxed font-light prevent-orphan">Quando a tosse é sinal de algo que merece avaliação, e como aliviar com segurança em casa.</p>
                         </div>
                         <a href="blog/crianca-com-tosse-que-nao-passa.html" class="text-xs font-bold text-brand-laranja hover:text-brand-ink transition-colors mt-4 inline-flex items-center gap-1">Ler completo <span>→</span></a>
                     </div>
@@ -682,7 +675,7 @@
                         <div class="space-y-4">
                             <span class="text-xs font-bold uppercase tracking-widest text-brand-verde">Maternidade</span>
                             <h3 class="font-serif text-2xl font-bold text-brand-ink prevent-orphan">Mala de maternidade: o checklist completo</h3>
-                            <p class="text-xs text-brand-inkSoft leading-relaxed font-light prevent-orphan">O que levar para a maternidade sem esquecer nada — para a mamãe e para o bebê.</p>
+                            <p class="text-base text-brand-inkSoft leading-relaxed font-light prevent-orphan">O que levar para a maternidade sem esquecer nada — para a mamãe e para o bebê.</p>
                         </div>
                         <a href="blog/mala-de-maternidade-checklist.html" class="text-xs font-bold text-brand-verde hover:text-brand-ink transition-colors mt-4 inline-flex items-center gap-1">Ler completo <span>→</span></a>
                     </div>
@@ -690,7 +683,7 @@
                         <div class="space-y-4">
                             <span class="text-xs font-bold uppercase tracking-widest text-brand-marsala">Saúde Infantil</span>
                             <h3 class="font-serif text-2xl font-bold text-brand-ink prevent-orphan">Febre no bebê: o que fazer</h3>
-                            <p class="text-xs text-brand-inkSoft leading-relaxed font-light prevent-orphan">Como medir certo, quando dar antitérmico e os sinais que pedem avaliação imediata.</p>
+                            <p class="text-base text-brand-inkSoft leading-relaxed font-light prevent-orphan">Como medir certo, quando dar antitérmico e os sinais que pedem avaliação imediata.</p>
                         </div>
                         <a href="blog/febre-no-bebe-o-que-fazer.html" class="text-xs font-bold text-brand-marsala hover:text-brand-ink transition-colors mt-4 inline-flex items-center gap-1">Ler completo <span>→</span></a>
                     </div>
@@ -698,7 +691,7 @@
                         <div class="space-y-4">
                             <span class="text-xs font-bold uppercase tracking-widest text-brand-verde">Primeiros Dias</span>
                             <h3 class="font-serif text-2xl font-bold text-brand-ink prevent-orphan">Cólica do bebê: como aliviar</h3>
-                            <p class="text-xs text-brand-inkSoft leading-relaxed font-light prevent-orphan">A "regra dos três" e técnicas práticas e seguras para os dias mais difíceis.</p>
+                            <p class="text-base text-brand-inkSoft leading-relaxed font-light prevent-orphan">A "regra dos três" e técnicas práticas e seguras para os dias mais difíceis.</p>
                         </div>
                         <a href="blog/colica-do-bebe-como-aliviar.html" class="text-xs font-bold text-brand-verde hover:text-brand-ink transition-colors mt-4 inline-flex items-center gap-1">Ler completo <span>→</span></a>
                     </div>
@@ -706,12 +699,12 @@
                         <div class="space-y-4">
                             <span class="text-xs font-bold uppercase tracking-widest text-brand-marsala">Primeiros Dias</span>
                             <h3 class="font-serif text-2xl font-bold text-brand-ink prevent-orphan">Sinais de alerta no recém-nascido</h3>
-                            <p class="text-xs text-brand-inkSoft leading-relaxed font-light prevent-orphan">Uma lista objetiva para guardar na memória nas primeiras semanas.</p>
+                            <p class="text-base text-brand-inkSoft leading-relaxed font-light prevent-orphan">Uma lista objetiva para guardar na memória nas primeiras semanas.</p>
                         </div>
                         <a href="blog/sinais-de-alerta-recem-nascido.html" class="text-xs font-bold text-brand-marsala hover:text-brand-ink transition-colors mt-4 inline-flex items-center gap-1">Ler completo <span>→</span></a>
                     </div>
                 </div>
-                <p class="text-center text-xs text-slate-400 mt-10">
+                <p class="text-center text-sm text-brand-inkSoft mt-10">
                     <a href="blog/index.html" class="text-brand-marsala font-semibold hover:underline">Ver todos os artigos</a> · acompanhe também pelo Instagram <a href="https://www.instagram.com/dra.flaviawanderley/" target="_blank" class="text-brand-marsala font-semibold hover:underline">@dra.flaviawanderley</a>.
                 </p>
             </div>
@@ -722,7 +715,6 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
-                    <span class="text-brand-laranja font-bold text-xs uppercase tracking-widest">Quem já é paciente</span>
                     <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-ink leading-tight prevent-orphan">O que as famílias dizem no Google</h2>
                     <a href="https://share.google/RomKKWvC0YNkJZCIp" target="_blank" rel="noopener"
                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-linen border border-brand-marsala/10 text-sm font-bold text-brand-ink hover:border-brand-marsala/30 transition-colors">
@@ -736,7 +728,7 @@
                             <span class="text-brand-laranja tracking-tight">★★★★★</span>
                             <p class="text-sm text-brand-ink font-light leading-relaxed prevent-orphan">"Além do cuidado com a nossa baby, Dra. Flávia volta seu olhar aos pais que estão ali, vivendo muitas vezes a sua primeira experiência e descobrindo um mundo cheio de dúvidas."</p>
                         </div>
-                        <p class="text-xs font-bold text-brand-marsala">Ana Zélia S. F. de Sousa <span class="font-light text-slate-400">· Google</span></p>
+                        <p class="text-xs font-bold text-brand-marsala">Ana Zélia S. F. de Sousa <span class="font-light text-brand-inkSoft">· Google</span></p>
                     </div>
 
                     <div class="bg-brand-linen/50 border border-brand-marsala/10 rounded-[2.5rem] p-8 space-y-5 flex flex-col justify-between">
@@ -744,7 +736,7 @@
                             <span class="text-brand-laranja tracking-tight">★★★★★</span>
                             <p class="text-sm text-brand-ink font-light leading-relaxed prevent-orphan">"Foi muito maravilhoso, eu e minha esposa estávamos muito preocupados com nossa filha e, graças a Deus e à Dra. Flávia, com toda sua experiência e dedicação, nos ajudou a cuidar da nossa pequenina da maneira correta. Todo o carinho e o ótimo atendimento — amamos, foi um prazer conhecê-la. ❤️"</p>
                         </div>
-                        <p class="text-xs font-bold text-brand-marsala">Bruno Santos <span class="font-light text-slate-400">· Google</span></p>
+                        <p class="text-xs font-bold text-brand-marsala">Bruno Santos <span class="font-light text-brand-inkSoft">· Google</span></p>
                     </div>
 
                     <div class="bg-brand-linen/50 border border-brand-marsala/10 rounded-[2.5rem] rounded-tr-none p-8 space-y-5 flex flex-col justify-between md:col-span-1 sm:col-span-2 md:col-start-auto">
@@ -752,7 +744,7 @@
                             <span class="text-brand-laranja tracking-tight">★★★★★</span>
                             <p class="text-sm text-brand-ink font-light leading-relaxed prevent-orphan">"Perfeita, minha princesa está bem melhor. Super atenciosa. 💗"</p>
                         </div>
-                        <p class="text-xs font-bold text-brand-marsala">Nívia Lais <span class="font-light text-slate-400">· Google</span></p>
+                        <p class="text-xs font-bold text-brand-marsala">Nívia Lais <span class="font-light text-brand-inkSoft">· Google</span></p>
                     </div>
                 </div>
 
@@ -769,7 +761,7 @@
                     <p class="text-brand-inkSoft font-light text-sm sm:text-base max-w-xl mx-auto prevent-orphan">
                         Escolha onde prefere ser atendido e já abre a conversa, sem formulário e sem espera.
                     </p>
-                    <p class="inline-flex items-center gap-2 text-xs font-semibold text-brand-marsala bg-brand-marsala/10 px-4 py-2 rounded-full">
+                    <p class="inline-flex items-center gap-2 text-sm font-semibold text-brand-marsala bg-brand-marsala/10 px-4 py-2 rounded-full">
                         <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         Consultas do recém-nascido devem acontecer nos primeiros dias de vida — não deixe para depois.
                     </p>
@@ -782,7 +774,7 @@
                        class="bg-white p-6 rounded-[2.5rem] border border-brand-marsala/10 shadow-sm hover:shadow-brand-premium hover:-translate-y-1 transition-all space-y-3 text-center">
                         <span class="inline-block px-3 py-1 rounded-full bg-brand-marsala text-white text-[10px] font-bold">UNIDADE PRINCIPAL</span>
                         <h3 class="font-serif text-xl font-bold text-brand-ink">Tucuruí</h3>
-                        <p class="text-xs text-brand-inkSoft font-light">Segunda a Sexta · 9h às 17h</p>
+                        <p class="text-sm text-brand-inkSoft font-light">Segunda a Sexta · 9h às 17h</p>
                         <p class="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 bg-brand-marsala text-white rounded-full text-xs font-bold">Falar no WhatsApp</p>
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=5594992224366&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Fl%C3%A1via."
@@ -790,7 +782,7 @@
                        class="bg-white p-6 rounded-[2.5rem] border border-brand-marsala/10 shadow-sm hover:shadow-brand-premium hover:-translate-y-1 transition-all space-y-3 text-center">
                         <span class="inline-block px-3 py-1 rounded-full bg-brand-laranja text-white text-[10px] font-bold">EXAMES E CONSULTAS</span>
                         <h3 class="font-serif text-xl font-bold text-brand-ink">Novo Repartimento</h3>
-                        <p class="text-xs text-brand-inkSoft font-light">Agenda especial · consultar horários</p>
+                        <p class="text-sm text-brand-inkSoft font-light">Agenda especial · consultar horários</p>
                         <p class="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 bg-brand-marsala text-white rounded-full text-xs font-bold">Falar no WhatsApp</p>
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=5591992095534&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Fl%C3%A1via."
@@ -798,7 +790,7 @@
                        class="bg-white p-6 rounded-[2.5rem] border border-brand-marsala/10 shadow-sm hover:shadow-brand-premium hover:-translate-y-1 transition-all space-y-3 text-center">
                         <span class="inline-block px-3 py-1 rounded-full bg-brand-verde text-white text-[10px] font-bold">CLÍNICA TAILÂNDIA</span>
                         <h3 class="font-serif text-xl font-bold text-brand-ink">Tailândia</h3>
-                        <p class="text-xs text-brand-inkSoft font-light">Consultar horários</p>
+                        <p class="text-sm text-brand-inkSoft font-light">Consultar horários</p>
                         <p class="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 bg-brand-marsala text-white rounded-full text-xs font-bold">Falar no WhatsApp</p>
                     </a>
                 </div>
@@ -813,7 +805,7 @@
                         </div>
                         <div class="flex-1">
                             <p class="font-bold text-brand-ink text-sm">Consulta Online</p>
-                            <p class="text-brand-inkSoft text-xs font-light">Ideal para dúvidas e acompanhamento</p>
+                            <p class="text-brand-inkSoft text-sm font-light">Ideal para dúvidas e acompanhamento</p>
                         </div>
                         <span class="text-brand-marsala font-bold text-xs">Falar →</span>
                     </a>
@@ -825,7 +817,7 @@
                         </div>
                         <div class="flex-1">
                             <p class="font-bold text-brand-ink text-sm">Atendimento Domiciliar</p>
-                            <p class="text-brand-inkSoft text-xs font-light">Recém-nascidos e crianças doentes · Tucuruí</p>
+                            <p class="text-brand-inkSoft text-sm font-light">Recém-nascidos e crianças doentes · Tucuruí</p>
                         </div>
                         <span class="text-brand-marsala font-bold text-xs">Falar →</span>
                     </a>
@@ -839,9 +831,8 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center space-y-4 mb-12">
-                    <span class="text-brand-laranja font-bold text-xs uppercase tracking-widest">Dúvidas Frequentes</span>
                     <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-ink prevent-orphan">Perguntas Comuns</h2>
-                    <p class="text-slate-500 font-light max-w-2xl mx-auto text-sm sm:text-base prevent-orphan">
+                    <p class="text-brand-inkSoft font-light max-w-2xl mx-auto text-sm sm:text-base prevent-orphan">
                         Respostas claras para as dúvidas mais comuns sobre consultas e rotina de cuidado infantil na região.
                     </p>
                 </div>
@@ -882,12 +873,12 @@
                                     <span class="prevent-orphan" x-text="item.q"></span>
                                     <span class="text-brand-marsala text-xs transition-transform duration-300" :class="selected === item.id ? 'rotate-180' : ''">▼</span>
                                 </button>
-                                <div x-show="selected === item.id" x-collapse class="px-6 pb-6 text-brand-inkSoft font-light leading-relaxed text-sm">
+                                <div x-show="selected === item.id" x-collapse class="px-6 pb-6 text-brand-inkSoft font-light leading-relaxed text-base">
                                     <p class="prevent-orphan" x-html="item.a"></p>
                                 </div>
                             </div>
                         </template>
-                        <div x-show="filteredFaqs().length === 0" x-transition class="text-center py-10 text-slate-400 font-light text-sm">
+                        <div x-show="filteredFaqs().length === 0" x-transition class="text-center py-10 text-brand-inkSoft font-light text-sm">
                             Nenhum resultado encontrado para "<span class="font-semibold" x-text="searchQuery"></span>". <br>Tente outros termos ou fale com nossa recepção.
                         </div>
                     </div>
@@ -898,10 +889,6 @@
 
         <!-- UNIDADES / CONTATO -->
         <section id="contato" class="reveal py-24 bg-brand-ink text-white overflow-hidden relative">
-            <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                <div class="absolute -bottom-10 -left-10 w-96 h-96 rounded-full bg-brand-marsala/10 blur-xl"></div>
-            </div>
-
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
                     <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/10 text-brand-creme font-semibold text-xs tracking-wide uppercase">Venha nos visitar</span>
@@ -953,7 +940,7 @@
                         </div>
                         <div>
                             <p class="font-bold text-white text-sm">Consulta Online</p>
-                            <p class="text-brand-linen/80 text-xs font-light">Ideal para dúvidas, acompanhamento e avaliações iniciais — (94) 99173-6176</p>
+                            <p class="text-brand-linen/80 text-sm font-light">Ideal para dúvidas, acompanhamento e avaliações iniciais — (94) 99173-6176</p>
                         </div>
                     </div>
                     <div class="bg-brand-marsala/20 border border-brand-marsala/30 rounded-[2rem] p-6 flex items-center gap-4">
@@ -962,7 +949,7 @@
                         </div>
                         <div>
                             <p class="font-bold text-white text-sm">Atendimento Domiciliar</p>
-                            <p class="text-brand-linen/80 text-xs font-light">Perfeito para recém-nascidos e crianças doentes — (94) 99173-6176</p>
+                            <p class="text-brand-linen/80 text-sm font-light">Perfeito para recém-nascidos e crianças doentes — (94) 99173-6176</p>
                         </div>
                     </div>
                 </div>
@@ -978,7 +965,7 @@
 
                 <div class="space-y-4 md:col-span-2">
                     <img src="assets/logo/logo-branca-sobre-marsala.png" alt="Dra. Flávia Wanderley" class="h-10 mx-auto md:mx-0">
-                    <p class="text-xs text-slate-400 font-light leading-relaxed max-w-sm mx-auto md:mx-0 prevent-orphan">
+                    <p class="text-sm text-slate-300 font-light leading-relaxed max-w-sm mx-auto md:mx-0 prevent-orphan">
                         Médica dedicada ao cuidado humanizado de bebês, crianças e gestantes em Tucuruí, Novo Repartimento e Tailândia, no Pará.
                     </p>
                 </div>
@@ -1007,7 +994,7 @@
 
             </div>
 
-            <div class="mt-12 pt-8 border-t border-white/5 text-center flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div class="mt-12 pt-8 border-t border-white/5 text-center flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
                 <p>Copyright © 2026 – Dra. Flávia Wanderley. Todos os direitos reservados. CRM-PA 19569.</p>
                 <div class="flex space-x-4">
                     <a href="#" class="hover:underline">Política de Privacidade</a>
@@ -1027,7 +1014,7 @@
                         io.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+            }, { threshold: 0.1, rootMargin: '0px 0px 300px 0px' });
             document.querySelectorAll('.reveal').forEach(el => io.observe(el));
         } else {
             document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
